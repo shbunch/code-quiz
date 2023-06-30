@@ -63,57 +63,63 @@ var questions = [
     }
 ]
 
-// When clicking start button, hide start area, and unhide quiz area
-function start() {
-    startArea.classList.add("hide")
-    quizArea.classList.remove("hide")
+// How to access elements of the question object
+questions[0].question;
+questions[0].choices[0]
+questions[0].correct
+console.log(questions.length-1);
+
+// // When clicking start button, hide start area, and unhide quiz area
+// function start() {
+//     startArea.classList.add("hide")
+//     quizArea.classList.remove("hide")
     
-    // Call the timer and make it stop at zero
-    timeEl.textContent = 'Time Remaining: ' + time + ' seconds';
-    timerName = setInterval(function () {
-        time--;
-        timeEl.textContent = 'Time Remaining: ' + time + ' seconds';
-        if (time === 0) {
-            clearInterval(timerName)
-        }        
-    }, 1000)
-    renderQuestion()
-}
+//     // Call the timer and make it stop at zero
+//     timeEl.textContent = 'Time Remaining: ' + time + ' seconds';
+//     timerName = setInterval(function () {
+//         time--;
+//         timeEl.textContent = 'Time Remaining: ' + time + ' seconds';
+//         if (time === 0) {
+//             clearInterval(timerName)
+//         }        
+//     }, 1000)
+//     renderQuestion()
+// }
 
-// Takes the current question and choice index and applies the question and choice pair to the text
-function renderQuestion() {
-    var currentQuestion = questions[questionIndex]
-    document.querySelector(".question-text").innerText = currentQuestion.question
-    button1.innerText = currentQuestion.choices[0]
-    button2.innerText = currentQuestion.choices[1]
-    button3.innerText = currentQuestion.choices[2]
-    button4.innerText = currentQuestion.choices[3]
-}
+// // Takes the current question and choice index and applies the question and choice pair to the text
+// function renderQuestion() {
+//     var currentQuestion = questions[questionIndex]
+//     document.querySelector(".question-text").innerText = currentQuestion.question
+//     button1.innerText = currentQuestion.choices[0]
+//     button2.innerText = currentQuestion.choices[1]
+//     button3.innerText = currentQuestion.choices[2]
+//     button4.innerText = currentQuestion.choices[3]
+// }
 
-function click(event) {
-    console.log(event.target.textContent)
-    console.log(this.textContent);
+// function click(event) {
+//     console.log(event.target.textContent)
+//     console.log(this.textContent);
 
-    // Check if the answer is incorrect and if it is wrong you are to deduct time from the game
-    if (this.textContent !==  questions[questionIndex].correct){
-        time -= 5;
-        timeEl.textContent = 'Time. ' + time;
-    }
-    questionIndex++;
-    renderQuestion()
-    // Could not determine how to determine if it's the last question
-    // console.log(questions[0]);
-    // console.log(questions.length);
-    // if (currentQuestion=questions.length-1){
-    //     console.log('game over');
-    // }else{
-    // }
-}
+//     // Check if the answer is incorrect and if it is wrong you are to deduct time from the game
+//     if (this.textContent !==  questions[questionIndex].correct){
+//         time -= 5;
+//         timeEl.textContent = 'Time. ' + time;
+//     }
+//     questionIndex++;
+//     renderQuestion()
+//     // Could not determine how to determine if it's the last question
+//     // console.log(questions[0]);
+//     // console.log(questions.length);
+//     // if (currentQuestion=questions.length-1){
+//     //     console.log('game over');
+//     // }else{
+//     // }
+// }
 
-// Adding click event listeners to buttons
-button1.addEventListener("click", click)
-button2.addEventListener("click", click)
-button3.addEventListener("click", click)
-button4.addEventListener("click", click)
+// // Adding click event listeners to buttons
+// button1.addEventListener("click", click)
+// button2.addEventListener("click", click)
+// button3.addEventListener("click", click)
+// button4.addEventListener("click", click)
 
-startBtn.addEventListener("click", start);
+// startBtn.addEventListener("click", start);
